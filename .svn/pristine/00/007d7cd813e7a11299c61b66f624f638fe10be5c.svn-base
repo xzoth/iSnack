@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.ServiceModel;
+using System.Text;
+using iSnack.Service.Data;
+
+namespace iSnack.Service.Interface
+{
+    /// <summary>
+    /// 获取Hello Word
+    /// </summary>
+    [ServiceContract]
+    public interface IHelloWordService
+    {
+        [OperationContract]
+        HelloWordEntity GetHello(HelloWordEntity entity);
+    }
+}

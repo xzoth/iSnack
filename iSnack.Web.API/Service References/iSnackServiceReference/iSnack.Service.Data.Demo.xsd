@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/iSnack.Service.Data.Demo" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/iSnack.Service.Data.Demo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/iSnack.Service.Data" />
+  <xs:complexType name="ArrayOfProductEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductEntity" nillable="true" type="tns:ProductEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductEntity" nillable="true" type="tns:ArrayOfProductEntity" />
+  <xs:complexType name="ProductEntity">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/iSnack.Service.Data" base="q1:iSnackEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="ser:guid" />
+          <xs:element name="Name" nillable="true" type="xs:string" />
+          <xs:element name="Price" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProductEntity" nillable="true" type="tns:ProductEntity" />
+</xs:schema>

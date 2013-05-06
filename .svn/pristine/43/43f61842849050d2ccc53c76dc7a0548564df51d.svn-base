@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace iSnack.Common.Attribute
+{
+    /// <summary>
+    /// 权限校验
+    /// </summary>
+    //[Serializable]
+    //[AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
+    ////[AttributeUsage(AttributeTargets.All, AllowMultiple = false, Inherited = true)]
+    //public class PermissionAttribute : OnMethodBoundaryAspect
+    //{
+    //    public override void OnEntry(MethodExecutionArgs args)
+    //    {
+    //        base.OnEntry(args);
+    //    }
+    //}
+}

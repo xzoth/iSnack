@@ -1,0 +1,105 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using iSnack.Web.API.Models;
+
+namespace iSnack.Web.API.Controllers
+{
+    public class ProductController : ApiController
+    {
+        private static IList<Product> allProduct = new List<Product>()
+        {
+            new Product() { ID = Guid.NewGuid(), Name = "XBOX360二代", Category = "游戏机", Price = 3699.9M},
+            new Product() { ID = Guid.NewGuid(), Name = "蓝光无线游戏鼠标", Category = "电脑配件", Price = 29M },
+            new Product() { ID = Guid.NewGuid(), Name = "HD视网膜高清摄像头", Category="电脑配件", Price=689M }
+        };
+
+        // GET api/product
+        public IEnumerable<Product> Get()
+        {
+            return allProduct;
+        }
+
+        [NonAction]
+        public IList<Product> GetAll() { return allProduct; }
+
+        // GET api/product/5
+        public Product Get([FromUri]Guid id)
+        {
+            Product product = allProduct.SingleOrDefault(item => item.ID == id);
+            if (product == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return product;
+        }
+
+        [HttpGet]
+        public IEnumerable<Product> GetProductByCategory([FromUri]string category)
+        {
+            return allProduct.Where(p => p.Category.Contains(category));
+        }
+
+        // POST api/product
+        public HttpResponseMessage Post(Product item)
+        {
+            if (item != null && ModelState.IsValid)
+            {
+                item.ID = Guid.NewGuid();
+                allProduct.Add(item);
+
+                //HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, item);
+                //response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = item.ID }));
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, new { success = true });
+
+                return response;
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
+        // PUT api/product/5
+        public HttpResponseMessage Put([FromUri]Guid id, Product product)
+        {
+            if (ModelState.IsValid && id == product.ID)
+            {
+                Product oldProduct = allProduct.FirstOrDefault(p => p.ID == id);
+                if (oldProduct == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+                else
+                {
+                    allProduct.Remove(oldProduct);
+                    allProduct.Add(product);
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK, product);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
+        // DELETE api/product/5
+        public HttpResponseMessage Delete([FromUri]Guid id)
+        {
+            Product product = allProduct.FirstOrDefault(p => p.ID == id);
+            if (product == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            allProduct.Remove(product);
+
+            return Request.CreateResponse(HttpStatusCode.OK, product);
+        }
+    }
+}

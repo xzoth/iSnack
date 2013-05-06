@@ -1,0 +1,16 @@
+﻿using System.Runtime.Serialization;
+using System;
+
+namespace iSnack.Service.Data
+{
+    [DataContract]
+    public class HelloWordEntity
+    {
+        [DataMember]
+        public string ID { get; set; }
+
+        //[JsonIgnore]
+        [DataMember]        
+        public string Word { get; set; }
+    }
+}

@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using iSnack.Service.Interface.Demo;
+using iSnack.Service.Data.Demo;
+using iSnack.BLL.Interface.Demo;
+
+namespace iSnack.Service.Demo
+{
+    public class ProductService : IProductService
+    {
+        public IList<ProductEntity> GetAll()
+        {
+            //string strResult = BLLFactory.GetBLLByType<IProductBLL>().GetHelloWord(entity.Word);
+            return null;
+        }
+
+        public ProductEntity GetByID(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Update(ProductEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Create(ProductEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
