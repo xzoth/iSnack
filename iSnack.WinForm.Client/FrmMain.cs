@@ -16,10 +16,13 @@ namespace iSnack.WinForm.Client
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
 
         }
+=======
+>>>>>>> c9cdec447fe7ac362042ebfdbd8976e46504bad6
     }
 }
