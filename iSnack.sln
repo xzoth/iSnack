@@ -21,17 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{83DB2400-7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSnack.Web.Mobi", "iSnack.Web.Mobi\iSnack.Web.Mobi.csproj", "{37B6CC03-6565-4387-85E6-3BD0E6EA5C1F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host (2)", "Host (2)", "{A7C5399B-49E1-44B3-BA99-1A3F3D411A70}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items (2)", "Solution Items (2)", "{53D29263-6117-4EA3-869B-7C21DC2C7594}"
-	ProjectSection(SolutionItems) = preProject
-		iSnack.vsmdi = iSnack.vsmdi
-		Local.testsettings = Local.testsettings
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test (2)", "Test (2)", "{0B0D49C0-CE71-43D1-B518-93FDCBA1937C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSnack.BLL", "iSnack.BLL\iSnack.BLL.csproj", "{DEE200B5-6A08-4DB8-812C-EC516694B9D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSnack.DAL", "iSnack.DAL\iSnack.DAL.csproj", "{26FDFEA0-1DD4-4ED6-9560-98FB00F8DB08}"
