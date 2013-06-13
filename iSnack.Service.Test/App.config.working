@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<configuration>
+    <configSections>
+        <sectionGroup name="spring">
+            <section name="context" type="Spring.Context.Support.ContextHandler, Spring.Core"/>
+            <section name="objects" type="Spring.Context.Support.DefaultSectionHandler, Spring.Core"/>
+        </sectionGroup>
+    </configSections>
+    <spring>
+        <context>
+            <resource uri="config://spring/objects"/>
+        </context>
+        <objects xmlns="http://www.springframework.net" xmlns:aop="http://www.springframework.net/aop">
+            <description>自动日志，事务，权限</description>
+            <object id="logPointcut" type="Spring.Aop.Support.AttributeMatchMethodPointcut, Spring.Aop">
+                <property name="Attribute" value="iSnack.Common.Attribute.LogAttribute, iSnack.Common"/>
+            </object>
+            <object id="logAdvice" type="iSnack.Common.Aspect.LogAdvice, iSnack.Common"/>
+            <aop:config>
+                <aop:advisor id="AutoLogAdvisor" advice-ref="logAdvice" pointcut-ref="logPointcut"/>
+            </aop:config>
+            <object id="helloWordService" type="iSnack.Service.HelloWordService, iSnack.Service"/>
+        </objects>
+    </spring>
+<startup><supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/></startup></configuration>

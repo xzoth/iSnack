@@ -1,4 +1,5 @@
-﻿using Spring.Context;
+﻿using iSnack.BLL.Interface;
+using Spring.Context;
 using Spring.Context.Support;
 using System.Collections;
 
@@ -6,14 +7,19 @@ namespace iSnack.Service
 {
     public static class BLLFactory
     {
-        public static IApplicationContext context = ContextRegistry.GetContext();
+        public static IApplicationContext context;
 
-        public static T GetBLLByKey<T>(string str) where T : class
+        static BLLFactory()
+        {
+            context = ContextRegistry.GetContext();
+        }
+
+        public static T GetBLLByKey<T>(string str) where T : class, IBaseBLL
         {
             return context.GetObject(str) as T;
         }
 
-        public static T GetBLLByType<T>() where T : class
+        public static T GetBLLByType<T>() where T : class, IBaseBLL
         {
             T bll = default(T);
 
