@@ -1,8 +1,0 @@
-﻿
-namespace iSnack.BLL.Interface
-{
-    public interface IHelloWordBLL
-    {
-        string GetHelloWord(string strWord);
-    }
-}

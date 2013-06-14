@@ -8,7 +8,7 @@ Ext.Loader.setPath({
 Ext.application({
     name: 'iSnackApp',
     viewport: { autoMaximize: true },
-    apiUri: 'http://localhost:2030/api/',
+    apiUri: 'http://192.168.1.104:8090/api/',
     phoneStartupScreen: '',
     tableStartupScreen: '',
     icon: '',
